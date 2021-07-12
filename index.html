@@ -59,6 +59,13 @@ for (let i = 0; i <= Xlen; i++) {
 	ctx.stroke();
 }
 
+canvas.addEventListener('mousemove', (e) => {
+	let pxl = [Math.floor(e.offsetX / pixel), Math.floor(e.offsetY / pixel)];
+
+	ctx.fillStyle = 'black';
+	ctx.fillRect(pixel * pxl[0], pixel * pxl[1], pixel, pixel);
+});
+
 </script>
 </body>
 </html>
