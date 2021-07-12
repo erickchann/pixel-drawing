@@ -17,17 +17,47 @@
 		body {
 			padding: 0;
 			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 
 	</style>
 </head>
 <body>
 
-	<canvas></canvas>
+	<canvas width="500" height="500"></canvas>
 
 <script>
 	
 const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+
+const w = canvas.width;
+const h = canvas.height;
+
+const pixel = 20;
+
+const Xlen = w / pixel;
+const Ylen = h / pixel;
+
+// Loop X line
+for (let i = 0; i <= Xlen; i++) {
+	ctx.strokeStyle = 'gray';
+	ctx.beginPath();
+	ctx.moveTo(0, pixel * i);
+	ctx.lineTo(w, pixel * i);
+	ctx.stroke();
+}
+
+// Loop Y line
+for (let i = 0; i <= Xlen; i++) {
+	ctx.strokeStyle = 'gray';
+	ctx.beginPath();
+	ctx.moveTo(pixel * i, 0);
+	ctx.lineTo(pixel * i, h);
+	ctx.stroke();
+}
 
 </script>
 </body>
