@@ -41,6 +41,8 @@ const pixel = 20;
 const Xlen = w / pixel;
 const Ylen = h / pixel;
 
+let coord = { x: 0, y: 0 };
+
 // Loop X line
 for (let i = 0; i <= Xlen; i++) {
 	ctx.strokeStyle = 'gray';
@@ -59,13 +61,29 @@ for (let i = 0; i <= Xlen; i++) {
 	ctx.stroke();
 }
 
-canvas.addEventListener('mousemove', (e) => {
-	let pxl = [Math.floor(e.offsetX / pixel), Math.floor(e.offsetY / pixel)];
+canvas.addEventListener('mousedown', start);
+canvas.addEventListener('mouseup', stop);
 
+function reposition(e) {
+	coord.x = Math.floor(e.offsetX / pixel);
+	coord.y = Math.floor(e.offsetY / pixel);
+}
+
+function start(e) {
+	canvas.addEventListener('mousemove', draw);
+
+	reposition(e);
+}
+
+function stop() {
+	canvas.removeEventListener('mousemove', draw);
+}
+
+function draw(e) {
 	ctx.fillStyle = 'black';
-	ctx.fillRect(pixel * pxl[0], pixel * pxl[1], pixel, pixel);
-});
-
+	ctx.fillRect(pixel * coord.x, pixel * coord.y, pixel, pixel);
+	reposition(e);
+}
 </script>
 </body>
 </html>
