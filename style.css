@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5ffbc;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.bottom > * {
+    margin: 0 10px;
+}
+
+button {
+    border: none;
+    padding: 5px 25px;
+    background-color: lightgreen;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+canvas {
+    background-color: white;
+}
+
+.canvas-area {
+    position: relative;
+}
+
+.vertical-lines, .horizontal-lines {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.horizontal-lines span {
+    position: absolute;
+    display: inline-block;
+    width: 500px;
+    height: 1px;
+    background-color: gray;
+}
+
+.vertical-lines span {
+    position: absolute;
+    display: inline-block;
+    width: 1px;
+    height: 500px;
+    background-color: gray;
+}
